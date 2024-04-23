@@ -6,7 +6,7 @@ Si vuole realizzare un sistema di gestione tramite base di dati che tenga tracci
 	- prodotti
 	- ordini
 	- coupon
-	- fornitore - ?
+	- fornitore
 	- reso
 	
 N ENTITÀ FORTI: 7
