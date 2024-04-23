@@ -1,0 +1,102 @@
+--- ANALISI DEI REQUISITI --- E - Commerce ---
+
+Si vuole realizzare un sistema di gestione tramite base di dati che tenga traccia di:
+	- utenti regitrati
+	- amministratori
+	- prodotti
+	- ordini
+	- coupon
+	- fornitore - ?
+	- reso
+	
+N ENTITÀ FORTI: 7
+	
+	
+- UTENTI REGISTRATI: hanno diritto di visualizzare i prodotti, di agguingerli al carrello e di 	acquistarli
+	- ID -- univoco
+	- password -- univoca
+	- Nome
+	- Cognome
+	- mail
+	- indirizzo di spedizione
+	- bloccato o no
+	- ordini (uno o più)
+	
+	+ 1 o più metodi di pagamento registrati:
+		- tipo di pagamento (carta di credito, prepagata ec...)
+		- codice -- univoco
+	
+	+ carrello personale:
+		- ID -- univoco
+		- data di creazione
+		- contenuto -- lista di prodotti
+	
+	
+	
+	(gli utenti pubblici in quando non registrati non hanno dati da tracciare nel DB)
+		
+
+- AMMINISTRATORI: non hanno diritto di acquisto ma hanno diritto di modificare il catalogo
+	- ID -- univoco
+	- Nome
+	- Cognome
+	- mail
+	- password -- univoca
+	
+	(per ovvi motivi gli ammministratori non possiedono un carrello)
+
+
+- PRODOTTI:
+	- ID -- univoco
+	- Nome
+	- descrizione prodotto
+	- prezzo
+	- quantità disponibile (visibile solo all'amministratore)
+	- categoria
+	- fornitore (un prodotto può avere più fornitori)
+	
+	+ lista di recensioni:
+		- ID -- univoco
+		- prodID -- univoco
+		- userID -- univoco
+		- testo
+		- voto
+
+
+- ORDINI:
+	- ID -- univoco
+	- userID -- univoco
+	- data
+	- stato
+	- totale importo
+	- corriere
+	- contenuto -- lista di prodotti
+	- coupon (warning)
+	
+
+- COUPON:
+	- ID -- univoco
+	- data inizio
+	- data scadenza 
+	- tipologia (descrizione)
+	- beneficio (la natura dello sconto)
+	
+
+- FORNITORE:
+	- ID -- univoco
+	- Nome
+	- Che cosa fornisce (un fornitore può fornire più prodotti)
+
+
+- RESO:
+	- ID -- univoco
+	- userID -- univoco
+	- ordineID -- univoco
+	- data di richiesta
+	- testo della richiesta
+	- stato
+	- corriere
+
+	
+	
+	
