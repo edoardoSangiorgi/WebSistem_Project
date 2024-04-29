@@ -18,9 +18,12 @@ N ENTITÀ FORTI: 7
 	- Nome
 	- Cognome
 	- mail
-	- indirizzo di spedizione
 	- bloccato o no
 	- ordini (uno o più)
+	
+	+ indirizzi di spedizione (si suppone che gli indirizzi possano essere ripetuti per più utenti)
+		- via
+		- cap
 	
 	+ 1 o più metodi di pagamento registrati:
 		- tipo di pagamento (carta di credito, prepagata ec...)
