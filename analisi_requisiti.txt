@@ -12,7 +12,8 @@ Si vuole realizzare un sistema di gestione tramite base di dati che tenga tracci
 N ENTITÀ FORTI: 7
 	
 	
-- UTENTI REGISTRATI: hanno diritto di visualizzare i prodotti, di agguingerli al carrello e di 	acquistarli
+- UTENTI REGISTRATI: hanno diritto di visualizzare i prodotti, di agguingerli al carrello e di 	acquistarli 
+//+ effettuare resi
 	- ID -- univoco
 	- password -- univoca
 	- Nome
@@ -24,15 +25,17 @@ N ENTITÀ FORTI: 7
 	+ indirizzi di spedizione (si suppone che gli indirizzi possano essere ripetuti per più utenti)
 		- via
 		- cap
+		//- nome campanello/azienda che non necessita validazione (posso mettere un cognome diverso da quello dell'utente)
 	
 	+ 1 o più metodi di pagamento registrati:
 		- tipo di pagamento (carta di credito, prepagata ec...)
-		- codice -- univoco
+		- codice -- univoco 
 	
 	+ carrello personale:
 		- ID -- univoco
 		- data di creazione
 		- contenuto -- lista di prodotti
+		//- subtotale complessivo
 	
 	
 	
@@ -43,8 +46,8 @@ N ENTITÀ FORTI: 7
 	- ID -- univoco
 	- Nome
 	- Cognome
-	- mail
-	- password -- univoca
+	- mail 
+	- password -- univoca //(non necessariamente)
 	
 	(per ovvi motivi gli ammministratori non possiedono un carrello)
 
@@ -56,7 +59,7 @@ N ENTITÀ FORTI: 7
 	- prezzo
 	- quantità disponibile (visibile solo all'amministratore)
 	- categoria
-	- fornitore (un prodotto può avere più fornitori)
+	- fornitore/i (un prodotto può avere più fornitori)
 	
 	+ lista di recensioni:
 		- ID -- univoco
@@ -64,6 +67,7 @@ N ENTITÀ FORTI: 7
 		- userID -- univoco
 		- testo
 		- voto
+		// -data
 
 
 - ORDINI:
@@ -75,6 +79,8 @@ N ENTITÀ FORTI: 7
 	- corriere
 	- contenuto -- lista di prodotti
 	- coupon (warning)
+	//- fornitorE (stavolta unico)
+	//- tipo_consegna (standard,premium)
 	
 
 - COUPON:
@@ -88,7 +94,8 @@ N ENTITÀ FORTI: 7
 - FORNITORE:
 	- ID -- univoco
 	- Nome
-	- Che cosa fornisce (un fornitore può fornire più prodotti)
+	- Che cosa fornisce (un fornitore può fornire più prodotti) 
+	// potrebbe essere un attributo composto da (prodotto,quantità) in modo da calcolare la disponibilità di prodotti sommando la disponibilità di tutti i fornitori?
 
 
 - RESO:
@@ -97,7 +104,7 @@ N ENTITÀ FORTI: 7
 	- ordineID -- univoco
 	- data di richiesta
 	- testo della richiesta
-	- stato
+	- stato //(elaborazione - rifiutato - accettato - oggetto restituito - transazione (economica) annullata - andato a buon fine)
 	- corriere
 
 	
